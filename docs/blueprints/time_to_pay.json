@@ -1,0 +1,26 @@
+{
+  "process": "Time to Pay",
+  "modules": [
+    "Attendance Time",
+    "Leave Benefits",
+    "Payroll Compensation"
+  ],
+  "owned_doctypes": [
+    "Time Device",
+    "Device Sync Batch",
+    "Attendance Exception",
+    "Shift Change Request",
+    "Overtime Request",
+    "Leave Benefit Ledger",
+    "Payroll Run Control",
+    "Payroll Adjustment",
+    "Bank Transfer Batch"
+  ],
+  "erpnext_touchpoints": [
+    "Employee Checkin",
+    "Attendance",
+    "Leave Application",
+    "Salary Slip",
+    "Payroll Entry"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "ksa_hr_platform",
+  "version": "0.0.1",
+  "description": "Process-oriented Saudi HR platform assets",
+  "private": true,
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {}
+}

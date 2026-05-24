@@ -1,0 +1,139 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-05-21 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company_defaults_section",
+  "company",
+  "default_currency",
+  "column_break_defaults",
+  "default_hr_manager",
+  "default_payroll_manager",
+  "default_finance_manager",
+  "request_controls_section",
+  "employee_service_request_series",
+  "default_service_sla_hours",
+  "reminder_before_sla_hours",
+  "auto_create_fulfilment_task",
+  "enable_email_notifications"
+ ],
+ "fields": [
+  {
+   "fieldname": "company_defaults_section",
+   "fieldtype": "Section Break",
+   "label": "Company Defaults"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Default Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "default_currency",
+   "fieldtype": "Link",
+   "label": "Default Currency",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "column_break_defaults",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "default_hr_manager",
+   "fieldtype": "Link",
+   "label": "Default HR Manager",
+   "options": "User"
+  },
+  {
+   "fieldname": "default_payroll_manager",
+   "fieldtype": "Link",
+   "label": "Default Payroll Manager",
+   "options": "User"
+  },
+  {
+   "fieldname": "default_finance_manager",
+   "fieldtype": "Link",
+   "label": "Default Finance Manager",
+   "options": "User"
+  },
+  {
+   "fieldname": "request_controls_section",
+   "fieldtype": "Section Break",
+   "label": "Request Controls"
+  },
+  {
+   "fieldname": "employee_service_request_series",
+   "fieldtype": "Data",
+   "label": "Employee Service Request Series",
+   "default": "ESR-.YYYY.-.#####"
+  },
+  {
+   "fieldname": "default_service_sla_hours",
+   "fieldtype": "Int",
+   "label": "Default Service SLA Hours",
+   "default": "48"
+  },
+  {
+   "fieldname": "reminder_before_sla_hours",
+   "fieldtype": "Int",
+   "label": "Reminder Before SLA Hours",
+   "default": "4"
+  },
+  {
+   "fieldname": "auto_create_fulfilment_task",
+   "fieldtype": "Check",
+   "label": "Auto Create Fulfilment Task",
+   "default": "1"
+  },
+  {
+   "fieldname": "enable_email_notifications",
+   "fieldtype": "Check",
+   "label": "Enable Email Notifications",
+   "default": "1"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-05-21 00:00:00",
+ "modified_by": "Administrator",
+ "module": "HR Settings",
+ "name": "HR Platform Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1
+  },
+  {
+   "role": "HR Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "issingle": 1
+}

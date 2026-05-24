@@ -1,0 +1,22 @@
+{
+  "process": "Exit to Settlement",
+  "modules": [
+    "Offboarding Settlement",
+    "Payroll Compensation",
+    "Accruals Finance"
+  ],
+  "owned_doctypes": [
+    "Exit Case",
+    "Clearance Checklist",
+    "Clearance Item",
+    "End Of Service Calculation",
+    "Final Settlement Run",
+    "Settlement Payment Control"
+  ],
+  "erpnext_touchpoints": [
+    "Employee",
+    "Salary Slip",
+    "Journal Entry",
+    "Payment Entry"
+  ]
+}

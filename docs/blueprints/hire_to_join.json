@@ -1,0 +1,21 @@
+{
+  "process": "Hire to Join",
+  "modules": [
+    "Recruitment Onboarding",
+    "Workforce Core"
+  ],
+  "owned_doctypes": [
+    "Workforce Plan",
+    "Hiring Request",
+    "Candidate Profile",
+    "Interview Evaluation",
+    "Offer Approval",
+    "Joining Checklist",
+    "Probation Review"
+  ],
+  "erpnext_touchpoints": [
+    "Job Applicant",
+    "Job Offer",
+    "Employee"
+  ]
+}

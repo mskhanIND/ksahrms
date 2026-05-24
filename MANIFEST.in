@@ -1,0 +1,7 @@
+include README.md
+include license.txt
+recursive-include ksa_hr_platform *.json
+recursive-include ksa_hr_platform *.py
+recursive-include ksa_hr_platform/public *
+recursive-include ksa_hr_platform/templates *
+recursive-include ksa_hr_platform/www *

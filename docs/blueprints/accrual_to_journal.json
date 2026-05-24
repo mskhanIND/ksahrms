@@ -1,0 +1,19 @@
+{
+  "process": "Accrual to Journal",
+  "modules": [
+    "Accruals Finance"
+  ],
+  "owned_doctypes": [
+    "Accrual Policy",
+    "Accrual Schedule",
+    "Accrual Calculation Batch",
+    "Accrual Journal Proposal",
+    "Accrual Reconciliation"
+  ],
+  "erpnext_touchpoints": [
+    "Journal Entry",
+    "Company",
+    "Cost Center",
+    "Account"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "process": "Request to Approval",
+  "modules": [
+    "Employee Services"
+  ],
+  "owned_doctypes": [
+    "Employee Service Request",
+    "Service Catalog",
+    "Service Approval Rule",
+    "Service Fulfilment Task",
+    "HR Letter Request",
+    "Travel Service Request",
+    "Asset Service Request",
+    "Insurance Service Request"
+  ],
+  "erpnext_touchpoints": [
+    "Employee",
+    "Payment Entry",
+    "Purchase Invoice",
+    "Sales Invoice"
+  ]
+}

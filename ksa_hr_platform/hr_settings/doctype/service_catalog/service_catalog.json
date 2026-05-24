@@ -1,0 +1,167 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-05-21 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "service_code",
+  "service_name",
+  "service_category",
+  "active",
+  "company",
+  "description",
+  "approval_controls_section",
+  "requires_line_manager",
+  "requires_hr_manager",
+  "requires_finance",
+  "fulfilment_role",
+  "default_sla_hours",
+  "default_priority",
+  "amount_required"
+ ],
+ "fields": [
+  {
+   "fieldname": "service_code",
+   "fieldtype": "Data",
+   "label": "Service Code",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "service_name",
+   "fieldtype": "Data",
+   "label": "Service Name",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "service_category",
+   "fieldtype": "Select",
+   "label": "Service Category",
+   "options": "General\nLetter\nTravel\nVisa\nInsurance\nAsset\nPayment\nLeave\nPayroll\nOffboarding",
+   "default": "General",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "active",
+   "fieldtype": "Check",
+   "label": "Active",
+   "default": "1",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "approval_controls_section",
+   "fieldtype": "Section Break",
+   "label": "Approval Controls"
+  },
+  {
+   "fieldname": "requires_line_manager",
+   "fieldtype": "Check",
+   "label": "Requires Line Manager Approval",
+   "default": "1"
+  },
+  {
+   "fieldname": "requires_hr_manager",
+   "fieldtype": "Check",
+   "label": "Requires HR Approval",
+   "default": "1"
+  },
+  {
+   "fieldname": "requires_finance",
+   "fieldtype": "Check",
+   "label": "Requires Finance Approval"
+  },
+  {
+   "fieldname": "fulfilment_role",
+   "fieldtype": "Link",
+   "label": "Fulfilment Role",
+   "options": "Role"
+  },
+  {
+   "fieldname": "default_sla_hours",
+   "fieldtype": "Int",
+   "label": "Default SLA Hours",
+   "default": "48"
+  },
+  {
+   "fieldname": "default_priority",
+   "fieldtype": "Select",
+   "label": "Default Priority",
+   "options": "Low\nMedium\nHigh\nUrgent",
+   "default": "Medium"
+  },
+  {
+   "fieldname": "amount_required",
+   "fieldtype": "Check",
+   "label": "Amount Required"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-05-21 00:00:00",
+ "modified_by": "Administrator",
+ "module": "HR Settings",
+ "name": "Service Catalog",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1
+  },
+  {
+   "role": "HR Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1
+  },
+  {
+   "role": "HR User",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "autoname": "field:service_code",
+ "allow_import": 1
+}

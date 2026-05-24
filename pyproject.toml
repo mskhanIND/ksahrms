@@ -1,0 +1,20 @@
+[project]
+name = "ksa_hr_platform"
+authors = [
+    { name = "KSA HR Platform Team" }
+]
+description = "Process-oriented Saudi HR platform for Frappe, ERPNext, and HRMS"
+requires-python = ">=3.10"
+readme = "README.md"
+dynamic = ["version"]
+dependencies = []
+
+[project.urls]
+Homepage = "https://example.com"
+
+[tool.flit.module]
+name = "ksa_hr_platform"
+
+[build-system]
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"
