@@ -4,6 +4,12 @@ KSA HR Platform is a fresh, process-oriented Frappe app for Saudi HR operations.
 
 The app is intentionally built under one owned namespace: `ksa_hr_platform`. It does not copy legacy app packages, hook paths, module names, or runtime dependencies. Existing HR apps should be used only as requirement references while rebuilding the product with a cleaner process model.
 
+## Repository And App Name
+
+The GitHub repository is `mskhanIND/ksahrms`, but the Frappe app name remains `ksa_hr_platform`.
+
+Do not rename the internal app/package after installation. Frappe uses `ksa_hr_platform` for hooks, migrations, DocType module paths, assets, and `bench --site your-site install-app ksa_hr_platform`.
+
 ## Product Direction
 
 - One app namespace and one hook surface.
