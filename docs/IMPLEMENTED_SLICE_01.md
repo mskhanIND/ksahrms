@@ -13,7 +13,7 @@ This slice turns the clean scaffold into the first usable HR process foundation.
 - Employee Service Request
 - Employee Service Request Approval
 - Service Fulfilment Task
-- KSA HR Platform workspace records
+- One visible KSA HR Platform workspace with grouped process sections and mapped DocTypes
 - Foundation process-owner DocTypes:
   - Employee HR Profile
   - Hiring Request
@@ -45,8 +45,8 @@ This slice turns the clean scaffold into the first usable HR process foundation.
 - Fulfilment task creation after approvals.
 - Completion action.
 - Email notification service hook for submitted, approved, rejected, and completed events.
-- Workspaces for KSA HR Platform, HR Settings, and Employee Services.
-- Workspaces for every process module so no module opens empty.
+- One grouped KSA HR Platform workspace for the implemented slice and foundation process areas.
+- Existing separate KSA process workspaces are hidden during migrate to keep the Desk sidebar clean.
 - In-app process guide records for available and planned process slices.
 
 ## Still To Build

@@ -24,18 +24,19 @@ Use this after installing the app on a bench site.
   - Exit Case
   - Accrual Policy
   - Compliance Alert
-- Confirm these workspaces exist:
+- Confirm the visible workspace exists:
   - KSA HR Platform
-  - KSA HR Settings
-  - KSA Employee Services
-  - KSA Workforce Core
-  - KSA Recruitment Onboarding
-  - KSA Attendance Time
-  - KSA Leave Benefits
-  - KSA Payroll Compensation
-  - KSA Offboarding Settlement
-  - KSA Accruals Finance
-  - KSA Analytics Compliance
+- Confirm the workspace shows grouped process sections for:
+  - Start Here
+  - Workforce Core
+  - Recruitment Onboarding
+  - Attendance Time
+  - Leave Benefits
+  - Payroll Compensation
+  - Offboarding Settlement
+  - Accruals Finance
+  - Analytics Compliance
+- Confirm old separate KSA process workspaces are hidden from the sidebar after migrate.
 - Confirm these roles exist:
   - Employee Self Service
   - Line Manager

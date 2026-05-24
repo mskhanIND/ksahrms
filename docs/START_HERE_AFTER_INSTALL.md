@@ -8,9 +8,11 @@ The app is ready to start controlled implementation. It is not ready to run live
 
 ## First Screen Mental Model
 
-The user should not start from an old app name. The user should start from the HR process they want to run.
+The user should not start from an old app name or separate source-app menu. The user should open the `KSA HR Platform` workspace first. That workspace groups the available DocTypes by process so the Desk sidebar stays clean.
 
-1. HR Settings
+Inside the workspace, follow this sequence:
+
+1. Start Here
 2. Workforce Core
 3. Recruitment Onboarding
 4. Employee Services

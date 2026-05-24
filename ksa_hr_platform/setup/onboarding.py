@@ -216,7 +216,7 @@ PROCESS_GUIDES = [
     }
 ]
 
-WORKSPACES = [
+LEGACY_WORKSPACES = [
     {
         "label": "KSA HR Platform",
         "title": "KSA HR Platform",
@@ -509,6 +509,78 @@ WORKSPACES = [
     }
 ]
 
+WORKSPACE_SECTIONS = [
+    {
+        "title": "Start Here",
+        "description": "Configure the platform first, then run the employee service request flow from request to approval to fulfilment.",
+        "items": [
+            ("HR Process Guide", "Process Guide"),
+            ("HR Platform Settings", "1. HR Platform Settings"),
+            ("Service Catalog", "2. Service Catalog"),
+            ("Approval Matrix", "3. Approval Matrix"),
+            ("Employee Service Request", "4. Employee Service Request"),
+        ],
+    },
+    {
+        "title": "Workforce Core",
+        "description": "Employee master control for Saudi-specific HR profile data before downstream HR activity starts.",
+        "items": [("Employee HR Profile", "Employee HR Profile")],
+    },
+    {
+        "title": "Recruitment Onboarding",
+        "description": "Hire-to-join process ownership from hiring need to approved recruitment action.",
+        "items": [("Hiring Request", "Hiring Request")],
+    },
+    {
+        "title": "Attendance Time",
+        "description": "Time-to-pay controls for attendance, overtime, shift, late, early, and device-sync exceptions.",
+        "items": [("Attendance Exception", "Attendance Exception")],
+    },
+    {
+        "title": "Leave Benefits",
+        "description": "Leave, ticket, benefit, encashment, and benefit exception requests controlled in one path.",
+        "items": [("Leave Benefit Request", "Leave Benefit Request")],
+    },
+    {
+        "title": "Payroll Compensation",
+        "description": "Payroll-impacting salary, benefit, overtime, deduction, and correction adjustments.",
+        "items": [("Payroll Adjustment", "Payroll Adjustment")],
+    },
+    {
+        "title": "Offboarding Settlement",
+        "description": "Exit-to-settlement ownership for resignation, clearance, EOS calculation, and final settlement.",
+        "items": [("Exit Case", "Exit Case")],
+    },
+    {
+        "title": "Accruals Finance",
+        "description": "Monthly HR accrual policy ownership before calculation, journal proposal, and reconciliation.",
+        "items": [("Accrual Policy", "Accrual Policy")],
+    },
+    {
+        "title": "Analytics Compliance",
+        "description": "Compliance-to-action ownership for document expiry, policy exception, and HR compliance risk alerts.",
+        "items": [("Compliance Alert", "Compliance Alert")],
+    },
+]
+
+LEGACY_WORKSPACE_LABELS = [
+    workspace["label"]
+    for workspace in LEGACY_WORKSPACES
+    if workspace["label"] != "KSA HR Platform"
+]
+
+WORKSPACES = [
+    {
+        "label": "KSA HR Platform",
+        "title": "KSA HR Platform",
+        "module": "HR Settings",
+        "sequence_id": 1,
+        "headline": "Start here: configure HR Settings, then run Employee Service Requests.",
+        "description": "All KSA HR process areas are grouped here so the Desk stays clean and every process shows its mapped DocTypes.",
+        "sections": WORKSPACE_SECTIONS,
+    }
+]
+
 def create_onboarding_records():
     create_process_guides()
     create_workspaces()
@@ -554,6 +626,8 @@ def create_workspaces():
     if not frappe.db.exists("DocType", "Workspace"):
         return
 
+    hide_legacy_workspaces()
+
     for workspace in WORKSPACES:
         if frappe.db.exists("Workspace", workspace["label"]):
             doc = frappe.get_doc("Workspace", workspace["label"])
@@ -566,6 +640,7 @@ def create_workspaces():
         safe_set(doc, "module", workspace["module"])
         safe_set(doc, "public", 1)
         safe_set(doc, "is_hidden", 0)
+        safe_set(doc, "parent_page", "")
         safe_set(doc, "sequence_id", workspace["sequence_id"])
         safe_set(doc, "indicator_color", "green")
         safe_set(doc, "icon", "organization")
@@ -573,23 +648,21 @@ def create_workspaces():
         if doc.meta.has_field("content"):
             doc.content = json.dumps(build_workspace_content(workspace))
 
-        if doc.meta.has_field("links"):
-            doc.set("links", [])
-            for link_to, label in workspace["links"]:
-                doc.append(
-                    "links",
-                    {
-                        "type": "Link",
-                    "label": label,
-                    "link_type": "DocType",
-                    "link_to": link_to,
-                    "onboard": 1,
-                    "hidden": 0,
-                    "is_query_report": 0,
-                    "link_count": 0,
-                },
-            )
+        set_workspace_child_rows(doc, "links", build_workspace_links(workspace))
+        set_workspace_child_rows(doc, "shortcuts", build_workspace_shortcuts(workspace))
 
+        doc.save(ignore_permissions=True)
+
+
+def hide_legacy_workspaces():
+    for label in LEGACY_WORKSPACE_LABELS:
+        if not frappe.db.exists("Workspace", label):
+            continue
+
+        doc = frappe.get_doc("Workspace", label)
+        safe_set(doc, "parent_page", "KSA HR Platform")
+        safe_set(doc, "is_hidden", 1)
+        safe_set(doc, "public", 1)
         doc.save(ignore_permissions=True)
 
 
@@ -613,21 +686,99 @@ def build_workspace_content(workspace):
         },
     ]
 
-    for link_to, label in workspace["links"]:
+    for section in workspace["sections"]:
         blocks.append(
             {
-                "type": "shortcut",
-                "data": {
-                    "shortcut_name": label,
-                    "label": label,
-                    "link_to": link_to,
-                    "type": "DocType",
-                    "col": 3,
-                },
+                "type": "header",
+                "data": {"text": section["title"], "col": 12},
+            }
+        )
+        blocks.append(
+            {
+                "type": "paragraph",
+                "data": {"text": section["description"], "col": 12},
+            }
+        )
+        blocks.append(
+            {
+                "type": "paragraph",
+                "data": {"text": "DocTypes: " + join_section_labels(section) + ".", "col": 12},
             }
         )
 
     return blocks
+
+
+def build_workspace_links(workspace):
+    rows = []
+    for section in workspace["sections"]:
+        rows.append(
+            {
+                "type": "Card Break",
+                "label": section["title"],
+                "hidden": 0,
+                "onboard": 0,
+                "link_count": 0,
+            }
+        )
+        for link_to, label in section["items"]:
+            rows.append(
+                {
+                    "type": "Link",
+                    "label": label,
+                    "link_type": "DocType",
+                    "link_to": link_to,
+                    "onboard": 1,
+                    "hidden": 0,
+                    "is_query_report": 0,
+                    "link_count": 0,
+                }
+            )
+    return rows
+
+
+def build_workspace_shortcuts(workspace):
+    rows = []
+    for section in workspace["sections"]:
+        for link_to, label in section["items"]:
+            rows.append(
+                {
+                    "shortcut_name": label,
+                    "label": label,
+                    "type": "DocType",
+                    "link_type": "DocType",
+                    "link_to": link_to,
+                    "doc_view": "List",
+                    "color": "Blue",
+                }
+            )
+    return rows
+
+
+def set_workspace_child_rows(doc, fieldname, rows):
+    if not doc.meta.has_field(fieldname):
+        return
+
+    doc.set(fieldname, [])
+    child_fields = get_child_fields(doc, fieldname)
+
+    for row in rows:
+        if child_fields:
+            row = {field: value for field, value in row.items() if field in child_fields}
+        doc.append(fieldname, row)
+
+
+def get_child_fields(doc, fieldname):
+    field = doc.meta.get_field(fieldname)
+    child_doctype = getattr(field, "options", None)
+    if not child_doctype or not frappe.db.exists("DocType", child_doctype):
+        return set()
+
+    return {field.fieldname for field in frappe.get_meta(child_doctype).fields}
+
+
+def join_section_labels(section):
+    return "; ".join(label for _, label in section["items"])
 
 
 def safe_set(doc, fieldname, value):
