@@ -1,6 +1,7 @@
 import frappe
 
 from ksa_hr_platform.setup.onboarding import create_onboarding_records
+from ksa_hr_platform.setup.workspace_cards import update_clickable_workspace
 
 
 PLATFORM_ROLES = [
@@ -70,6 +71,7 @@ def after_install():
     create_default_settings()
     create_default_services()
     create_onboarding_records()
+    update_clickable_workspace()
 
 
 def create_roles():
