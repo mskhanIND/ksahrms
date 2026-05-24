@@ -1,5 +1,7 @@
 import frappe
 
+from ksa_hr_platform.setup.onboarding import create_onboarding_records
+
 
 PLATFORM_ROLES = [
     "Employee Self Service",
@@ -67,6 +69,7 @@ def after_install():
     create_roles()
     create_default_settings()
     create_default_services()
+    create_onboarding_records()
 
 
 def create_roles():

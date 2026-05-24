@@ -1,0 +1,200 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-05-21 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "sequence",
+  "process_name",
+  "module_name",
+  "status",
+  "owner_role",
+  "direction_section",
+  "start_point",
+  "end_point",
+  "next_action",
+  "process_details_section",
+  "workflow_summary",
+  "approval_strategy",
+  "notification_strategy",
+  "related_doctypes_section",
+  "related_doctypes"
+ ],
+ "fields": [
+  {
+   "fieldname": "sequence",
+   "fieldtype": "Int",
+   "label": "Sequence",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "process_name",
+   "fieldtype": "Data",
+   "label": "Process Name",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "module_name",
+   "fieldtype": "Link",
+   "label": "Module",
+   "options": "Module Def",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Available\nPlanned",
+   "default": "Planned",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "owner_role",
+   "fieldtype": "Link",
+   "label": "Owner Role",
+   "options": "Role",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "direction_section",
+   "fieldtype": "Section Break",
+   "label": "Start And End"
+  },
+  {
+   "fieldname": "start_point",
+   "fieldtype": "Small Text",
+   "label": "Starting Point"
+  },
+  {
+   "fieldname": "end_point",
+   "fieldtype": "Small Text",
+   "label": "Ending Point"
+  },
+  {
+   "fieldname": "next_action",
+   "fieldtype": "Small Text",
+   "label": "Next Action"
+  },
+  {
+   "fieldname": "process_details_section",
+   "fieldtype": "Section Break",
+   "label": "Workflow, Approvals, Notifications"
+  },
+  {
+   "fieldname": "workflow_summary",
+   "fieldtype": "Text Editor",
+   "label": "Workflow Summary"
+  },
+  {
+   "fieldname": "approval_strategy",
+   "fieldtype": "Text Editor",
+   "label": "Approval Strategy"
+  },
+  {
+   "fieldname": "notification_strategy",
+   "fieldtype": "Text Editor",
+   "label": "Notification Strategy"
+  },
+  {
+   "fieldname": "related_doctypes_section",
+   "fieldtype": "Section Break",
+   "label": "Related DocTypes"
+  },
+  {
+   "fieldname": "related_doctypes",
+   "fieldtype": "Table",
+   "label": "Related DocTypes",
+   "options": "HR Process Guide Item"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-05-21 00:00:00",
+ "modified_by": "Administrator",
+ "module": "HR Settings",
+ "name": "HR Process Guide",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1
+  },
+  {
+   "role": "HR Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1
+  },
+  {
+   "role": "HR User",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1
+  },
+  {
+   "role": "Line Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1
+  },
+  {
+   "role": "Finance Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1
+  },
+  {
+   "role": "Employee Self Service",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "print": 1,
+   "email": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "autoname": "field:process_name",
+ "allow_import": 1
+}

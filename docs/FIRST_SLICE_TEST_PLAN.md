@@ -8,12 +8,18 @@ Use this after installing the app on a bench site.
 - Run migrate.
 - Confirm these DocTypes exist:
   - HR Platform Settings
+  - HR Process Guide
+  - HR Process Guide Item
   - Approval Matrix
   - Approval Matrix Step
   - Service Catalog
   - Employee Service Request
   - Employee Service Request Approval
   - Service Fulfilment Task
+- Confirm these workspaces exist:
+  - KSA HR Platform
+  - KSA HR Settings
+  - KSA Employee Services
 - Confirm these roles exist:
   - Employee Self Service
   - Line Manager
@@ -25,6 +31,7 @@ Use this after installing the app on a bench site.
 ## 2. Settings Checks
 
 - Open HR Platform Settings.
+- Open HR Process Guide and review Start Here.
 - Confirm Employee Service Request Series is set.
 - Confirm default SLA hours are set.
 - Confirm email notifications are enabled only if outgoing email is configured.

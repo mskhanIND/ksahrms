@@ -5,23 +5,27 @@ This slice turns the clean scaffold into the first usable HR process foundation.
 ## Included
 
 - HR Platform Settings
+- HR Process Guide
+- HR Process Guide Item
 - Approval Matrix
 - Approval Matrix Step
 - Service Catalog
 - Employee Service Request
 - Employee Service Request Approval
 - Service Fulfilment Task
+- KSA HR Platform workspace records
 
 ## First User Path
 
-1. Open HR Settings.
-2. Review HR Platform Settings.
-3. Review or create Service Catalog records.
-4. Optionally create Approval Matrix rules.
-5. Create an Employee Service Request.
-6. Submit it.
-7. Approve each pending step.
-8. Complete the fulfilment task.
+1. Open the `KSA HR Platform` workspace.
+2. Open `HR Process Guide` and read `Start Here`.
+3. Review `HR Platform Settings`.
+4. Review or create `Service Catalog` records.
+5. Optionally create `Approval Matrix` rules.
+6. Create an `Employee Service Request`.
+7. Submit it.
+8. Approve each pending step.
+9. Complete the fulfilment task.
 
 ## What Works
 
@@ -32,6 +36,8 @@ This slice turns the clean scaffold into the first usable HR process foundation.
 - Fulfilment task creation after approvals.
 - Completion action.
 - Email notification service hook for submitted, approved, rejected, and completed events.
+- Workspaces for KSA HR Platform, HR Settings, and Employee Services.
+- In-app process guide records for available and planned process slices.
 
 ## Still To Build
 
