@@ -64,59 +64,155 @@ PROCESS_GUIDES = [
     },
     {
         "sequence": 3,
+        "process_name": "Workforce Foundation",
+        "module": "Workforce Core",
+        "status": "Foundation",
+        "owner_role": "HR Manager",
+        "start_point": "Create or review Employee HR Profile records linked to ERPNext Employee.",
+        "end_point": "Saudi-specific HR profile, documents, dependents, contracts, and employment data are controlled from one profile.",
+        "workflow_summary": "Employee -> Employee HR Profile -> Profile Review -> Active Profile.",
+        "approval_strategy": "HR validates profile completeness. HR Manager approves sensitive corrections.",
+        "notification_strategy": "Profile missing data, document expiry, and HR review reminders are planned.",
+        "next_action": "Open Employee HR Profile and validate employee master coverage.",
+        "related_doctypes": [
+            [
+                "Employee HR Profile",
+                "Foundation"
+            ]
+        ]
+    },
+    {
+        "sequence": 4,
         "process_name": "Hire To Join",
         "module": "Recruitment Onboarding",
-        "status": "Planned",
+        "status": "Foundation",
         "owner_role": "HR Manager",
         "start_point": "Department raises hiring need or replacement request.",
         "end_point": "Employee record is active, joining checklist is complete, and probation review is scheduled.",
         "workflow_summary": "Workforce Plan -> Hiring Request -> Candidate -> Offer -> Joining -> Probation.",
         "approval_strategy": "Department Head, HR, Finance where budget applies, and authorized offer approver.",
         "notification_strategy": "Hiring approval, interview scheduling, offer approval, joining checklist, and probation reminders.",
-        "next_action": "Build Workforce Plan and Hiring Request in a later slice.",
-        "related_doctypes": []
+        "next_action": "Open Hiring Request and define the first hire-to-join process.",
+        "related_doctypes": [
+            [
+                "Hiring Request",
+                "Foundation"
+            ]
+        ]
     },
     {
-        "sequence": 4,
+        "sequence": 5,
         "process_name": "Time To Pay",
         "module": "Attendance Time",
-        "status": "Planned",
+        "status": "Foundation",
         "owner_role": "Payroll Manager",
         "start_point": "Attendance, leave, shift, overtime, or exception data enters the month.",
         "end_point": "Payroll-impacting adjustments are approved and included in payroll run controls.",
         "workflow_summary": "Device Sync -> Attendance Exception -> Approval -> Payroll Adjustment -> Payroll Run.",
         "approval_strategy": "Line Manager validates exceptions, HR validates policy, Payroll validates salary impact.",
         "notification_strategy": "Device sync failures, pending overtime/exception approvals, and payroll readiness alerts.",
-        "next_action": "Build Time Device, Attendance Exception, and Payroll Adjustment in a later slice.",
-        "related_doctypes": []
+        "next_action": "Open Attendance Exception and model the first attendance correction workflow.",
+        "related_doctypes": [
+            [
+                "Attendance Exception",
+                "Foundation"
+            ]
+        ]
     },
     {
-        "sequence": 5,
+        "sequence": 6,
+        "process_name": "Leave And Benefits",
+        "module": "Leave Benefits",
+        "status": "Foundation",
+        "owner_role": "HR Manager",
+        "start_point": "Employee or HR records a leave/benefit entitlement, request, due, or exception.",
+        "end_point": "Leave/benefit decision is approved and reflected in employee service or payroll process.",
+        "workflow_summary": "Leave Benefit Request -> HR Review -> Manager/Payroll Review -> Approved -> Closed.",
+        "approval_strategy": "HR validates entitlement. Manager or Payroll approves impact depending on request type.",
+        "notification_strategy": "Pending entitlement review, approval decisions, and overdue benefit tasks are planned.",
+        "next_action": "Open Leave Benefit Request and define the first leave/benefit service type.",
+        "related_doctypes": [
+            [
+                "Leave Benefit Request",
+                "Foundation"
+            ]
+        ]
+    },
+    {
+        "sequence": 7,
+        "process_name": "Payroll Compensation",
+        "module": "Payroll Compensation",
+        "status": "Foundation",
+        "owner_role": "Payroll Manager",
+        "start_point": "Payroll receives an approved salary, benefit, overtime, deduction, or correction impact.",
+        "end_point": "Payroll adjustment is approved and ready for Salary Slip or Payroll Entry processing.",
+        "workflow_summary": "Payroll Adjustment -> Payroll Review -> Finance Review -> Approved For Payroll.",
+        "approval_strategy": "Payroll validates salary impact. Finance validates accounting impact for payable items.",
+        "notification_strategy": "Payroll review, finance review, approval, rejection, and payroll-ready alerts are planned.",
+        "next_action": "Open Payroll Adjustment and map first salary-impact transaction.",
+        "related_doctypes": [
+            [
+                "Payroll Adjustment",
+                "Foundation"
+            ]
+        ]
+    },
+    {
+        "sequence": 8,
         "process_name": "Exit To Settlement",
         "module": "Offboarding Settlement",
-        "status": "Planned",
+        "status": "Foundation",
         "owner_role": "HR Manager",
         "start_point": "Resignation, termination, final exit, or contract-end action is initiated.",
         "end_point": "Clearance is complete, final settlement is approved, and payment/accounting records are posted.",
         "workflow_summary": "Exit Case -> Clearance -> EOS Calculation -> Payroll Review -> Finance Review -> Settled.",
         "approval_strategy": "HR validates policy, departments confirm clearance, Payroll validates dues, Finance validates payment.",
         "notification_strategy": "Clearance assignment, overdue clearance, settlement approval, and completion notices.",
-        "next_action": "Build Exit Case and Clearance Checklist in a later slice.",
-        "related_doctypes": []
+        "next_action": "Open Exit Case and define the first exit-to-settlement flow.",
+        "related_doctypes": [
+            [
+                "Exit Case",
+                "Foundation"
+            ]
+        ]
     },
     {
-        "sequence": 6,
+        "sequence": 9,
         "process_name": "Accrual To Journal",
         "module": "Accruals Finance",
-        "status": "Planned",
+        "status": "Foundation",
         "owner_role": "Finance Manager",
         "start_point": "Monthly accrual schedule becomes due.",
         "end_point": "Journal proposal is reviewed, posted, and reconciled.",
         "workflow_summary": "Accrual Policy -> Calculation Batch -> Journal Proposal -> Posted -> Reconciled.",
         "approval_strategy": "HR validates employee assumptions. Finance validates accounts, cost centers, and journals.",
         "notification_strategy": "Schedule due, calculation completed, journal posting failed, and reconciliation pending.",
-        "next_action": "Build Accrual Policy and Accrual Journal Proposal in a later slice.",
-        "related_doctypes": []
+        "next_action": "Open Accrual Policy and define the first monthly accrual rule.",
+        "related_doctypes": [
+            [
+                "Accrual Policy",
+                "Foundation"
+            ]
+        ]
+    },
+    {
+        "sequence": 10,
+        "process_name": "Compliance To Action",
+        "module": "Analytics Compliance",
+        "status": "Foundation",
+        "owner_role": "Compliance Officer",
+        "start_point": "A document expiry, policy exception, dashboard condition, or compliance risk is detected.",
+        "end_point": "Compliance action is assigned, resolved, and closed by HR or the responsible owner.",
+        "workflow_summary": "Compliance Alert -> Assigned -> In Progress -> Resolved -> Closed.",
+        "approval_strategy": "Compliance Officer or HR Manager closes high-risk alerts after owner resolution.",
+        "notification_strategy": "Upcoming expiry, breach, assigned action, overdue action, and closure notifications are planned.",
+        "next_action": "Open Compliance Alert and define the first document expiry alert.",
+        "related_doctypes": [
+            [
+                "Compliance Alert",
+                "Foundation"
+            ]
+        ]
     }
 ]
 
@@ -127,7 +223,7 @@ WORKSPACES = [
         "module": "HR Settings",
         "sequence_id": 1,
         "headline": "Start here: configure HR Settings, then run Employee Service Requests.",
-        "description": "This workspace shows the current implemented slice and the planned end-to-end HR process map.",
+        "description": "This workspace shows available process DocTypes, foundation process owners, and the planned end-to-end HR map.",
         "links": [
             [
                 "HR Process Guide",
@@ -148,6 +244,38 @@ WORKSPACES = [
             [
                 "Employee Service Request",
                 "4. Employee Service Request"
+            ],
+            [
+                "Employee HR Profile",
+                "Employee HR Profile"
+            ],
+            [
+                "Hiring Request",
+                "Hiring Request"
+            ],
+            [
+                "Attendance Exception",
+                "Attendance Exception"
+            ],
+            [
+                "Leave Benefit Request",
+                "Leave Benefit Request"
+            ],
+            [
+                "Payroll Adjustment",
+                "Payroll Adjustment"
+            ],
+            [
+                "Exit Case",
+                "Exit Case"
+            ],
+            [
+                "Accrual Policy",
+                "Accrual Policy"
+            ],
+            [
+                "Compliance Alert",
+                "Compliance Alert"
             ]
         ]
     },
@@ -200,6 +328,182 @@ WORKSPACES = [
             [
                 "HR Process Guide",
                 "Request To Approval Guide"
+            ]
+        ]
+    },
+    {
+        "label": "KSA Workforce Core",
+        "title": "KSA Workforce Core",
+        "module": "Workforce Core",
+        "sequence_id": 4,
+        "headline": "Single owned profile for Saudi-specific HR data linked to the standard Employee record.",
+        "description": "Start: Create or sync an employee profile from ERPNext Employee. End: Employee profile is complete, reviewed, and ready for downstream HR processes.",
+        "links": [
+            [
+                "Employee HR Profile",
+                "Employee HR Profile"
+            ],
+            [
+                "HR Process Guide",
+                "Workforce Core Guide"
+            ],
+            [
+                "Employee Service Request",
+                "Employee Service Request"
+            ]
+        ]
+    },
+    {
+        "label": "KSA Recruitment Onboarding",
+        "title": "KSA Recruitment Onboarding",
+        "module": "Recruitment Onboarding",
+        "sequence_id": 5,
+        "headline": "Controlled starting point for recruitment, replacement, and workforce demand.",
+        "description": "Start: Department requests a new position or replacement. End: Hiring request is approved and ready for candidate processing.",
+        "links": [
+            [
+                "Hiring Request",
+                "Hiring Request"
+            ],
+            [
+                "HR Process Guide",
+                "Recruitment Onboarding Guide"
+            ],
+            [
+                "Employee Service Request",
+                "Employee Service Request"
+            ]
+        ]
+    },
+    {
+        "label": "KSA Attendance Time",
+        "title": "KSA Attendance Time",
+        "module": "Attendance Time",
+        "sequence_id": 6,
+        "headline": "Controlled correction path for attendance, shift, overtime, late, early, and device exceptions.",
+        "description": "Start: Employee, manager, HR, or device sync identifies an attendance exception. End: Approved correction is ready for attendance or payroll impact.",
+        "links": [
+            [
+                "Attendance Exception",
+                "Attendance Exception"
+            ],
+            [
+                "HR Process Guide",
+                "Attendance Time Guide"
+            ],
+            [
+                "Employee Service Request",
+                "Employee Service Request"
+            ]
+        ]
+    },
+    {
+        "label": "KSA Leave Benefits",
+        "title": "KSA Leave Benefits",
+        "module": "Leave Benefits",
+        "sequence_id": 7,
+        "headline": "Unified control point for leave dues, tickets, benefits, encashment, and benefit exceptions.",
+        "description": "Start: Employee or HR requests a leave or benefit action. End: Benefit decision is approved and handed to service, payroll, or compliance process.",
+        "links": [
+            [
+                "Leave Benefit Request",
+                "Leave Benefit Request"
+            ],
+            [
+                "HR Process Guide",
+                "Leave Benefits Guide"
+            ],
+            [
+                "Employee Service Request",
+                "Employee Service Request"
+            ]
+        ]
+    },
+    {
+        "label": "KSA Payroll Compensation",
+        "title": "KSA Payroll Compensation",
+        "module": "Payroll Compensation",
+        "sequence_id": 8,
+        "headline": "Controlled payroll-impact record for approved salary, benefit, overtime, and deduction changes.",
+        "description": "Start: Approved HR process creates or requests a payroll-impacting adjustment. End: Adjustment is approved for salary slip or payroll entry processing.",
+        "links": [
+            [
+                "Payroll Adjustment",
+                "Payroll Adjustment"
+            ],
+            [
+                "HR Process Guide",
+                "Payroll Compensation Guide"
+            ],
+            [
+                "Employee Service Request",
+                "Employee Service Request"
+            ]
+        ]
+    },
+    {
+        "label": "KSA Offboarding Settlement",
+        "title": "KSA Offboarding Settlement",
+        "module": "Offboarding Settlement",
+        "sequence_id": 9,
+        "headline": "Controlled start-to-finish record for resignation, termination, clearance, and settlement.",
+        "description": "Start: Exit is initiated by employee, manager, HR, or contract end. End: Clearance, EOS calculation, final approval, and settlement are complete.",
+        "links": [
+            [
+                "Exit Case",
+                "Exit Case"
+            ],
+            [
+                "HR Process Guide",
+                "Offboarding Settlement Guide"
+            ],
+            [
+                "Employee Service Request",
+                "Employee Service Request"
+            ]
+        ]
+    },
+    {
+        "label": "KSA Accruals Finance",
+        "title": "KSA Accruals Finance",
+        "module": "Accruals Finance",
+        "sequence_id": 10,
+        "headline": "Policy and control record for monthly HR accrual calculations and finance provisions.",
+        "description": "Start: Finance defines a recurring HR accrual rule. End: Policy drives reviewed accrual calculation and journal proposal.",
+        "links": [
+            [
+                "Accrual Policy",
+                "Accrual Policy"
+            ],
+            [
+                "HR Process Guide",
+                "Accruals Finance Guide"
+            ],
+            [
+                "Employee Service Request",
+                "Employee Service Request"
+            ]
+        ]
+    },
+    {
+        "label": "KSA Analytics Compliance",
+        "title": "KSA Analytics Compliance",
+        "module": "Analytics Compliance",
+        "sequence_id": 11,
+        "headline": "Actionable alert for document expiry, policy exception, dashboard trigger, or HR compliance risk.",
+        "description": "Start: A compliance rule, report, or user identifies a risk. End: Responsible owner resolves the action and HR/Compliance closes it.",
+        "links": [
+            [
+                "Compliance Alert",
+                "Compliance Alert"
+            ],
+            [
+                "HR Process Guide",
+                "Analytics Compliance Guide"
+            ],
+            [
+                "Employee Service Request",
+                "Employee Service Request"
             ]
         ]
     }

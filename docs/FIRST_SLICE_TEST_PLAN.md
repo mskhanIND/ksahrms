@@ -16,10 +16,26 @@ Use this after installing the app on a bench site.
   - Employee Service Request
   - Employee Service Request Approval
   - Service Fulfilment Task
+  - Employee HR Profile
+  - Hiring Request
+  - Attendance Exception
+  - Leave Benefit Request
+  - Payroll Adjustment
+  - Exit Case
+  - Accrual Policy
+  - Compliance Alert
 - Confirm these workspaces exist:
   - KSA HR Platform
   - KSA HR Settings
   - KSA Employee Services
+  - KSA Workforce Core
+  - KSA Recruitment Onboarding
+  - KSA Attendance Time
+  - KSA Leave Benefits
+  - KSA Payroll Compensation
+  - KSA Offboarding Settlement
+  - KSA Accruals Finance
+  - KSA Analytics Compliance
 - Confirm these roles exist:
   - Employee Self Service
   - Line Manager
